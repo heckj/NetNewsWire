@@ -9,9 +9,11 @@ let package = Package(
             name: "Articles",
 			type: .dynamic,
             targets: ["Articles"]),
+        .executable(name: "article-benchmark", targets: ["article-benchmark"])
     ],
     dependencies: [
 		.package(url: "https://github.com/Ranchero-Software/RSCore.git", .upToNextMajor(from: "1.0.0")),
+        .package(url: "https://github.com/apple/swift-collections-benchmark", from: "0.0.1"),
     ],
     targets: [
         .target(
@@ -19,5 +21,12 @@ let package = Package(
 			dependencies: [
 				"RSCore"
 			]),
+        .target(
+            name: "article-benchmark",
+            dependencies: [
+                "Articles",
+                .product(name: "CollectionsBenchmark", package: "swift-collections-benchmark")
+            ]
+        ),
 	]
 )
