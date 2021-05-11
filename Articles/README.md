@@ -9,8 +9,8 @@ It's easiest to run this from the command line:
 
     cd Articles
     rm results
-    swift run -c release article-benchmark run --cycles 3 --max-size 50000 results
-    swift run -c release article-benchmark render --linear-size results chart.png
+    swift run -c release article-benchmark run --cycles 5 --max-size 10000 results
+    swift run -c release article-benchmark render results chart.png
     open chart.png
     
 ![chart of differences](chart.png)
